@@ -13,6 +13,6 @@ public class ClassStart1 {
         System.out.println("이름 : " + student1Name + " 나이 : " + student1Age + " 성적 : " + student1Grade);
         System.out.println("이름 : " + student2Name + " 나이 : " + student2Age + " 성적 : " + student2Grade);
 
-        // 학생이 늘어날 때마다 변수추가, 출력코드가 모두 필요하다.
+        // 위 코드의 문제점 : 학생이 늘어날 때마다 변수추가, 출력코드가 모두 필요하다.
     }
 }
