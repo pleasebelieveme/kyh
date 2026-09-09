@@ -1,4 +1,4 @@
-package poly.ex;
+package poly.ex1;
 
 public class Dog {
     public void sound() {

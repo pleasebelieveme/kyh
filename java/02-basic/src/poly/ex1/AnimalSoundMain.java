@@ -1,4 +1,4 @@
-package poly.ex;
+package poly.ex1;
 
 public class AnimalSoundMain {
     static void main(String[] args) {
