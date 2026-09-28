@@ -19,13 +19,16 @@ import jakarta.persistence.PersistenceContext;
 @Configuration
 public class SpringConfig {
 
-	// @Autowired DataSource dataSource;
-	//
-	// @Autowired
-	// public SpringConfig(DataSource dataSource) {
-	// 	this.dataSource = dataSource;
-	// }
+	/* java, jdbcTemplate 설정
+	@Autowired DataSource dataSource;
 
+	@Autowired
+	public SpringConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+	*/
+
+	/* jpa 설정
 	// @PersistenceContext // 스펙에서는 이렇게 받으라고 설명.
 	EntityManager em;
 
@@ -33,17 +36,25 @@ public class SpringConfig {
 	public SpringConfig(EntityManager em) {
 		this.em = em;
 	}
+	*/
+
+	private final MemberRepository memberRepository;
+
+	@Autowired
+	public SpringConfig(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
 
 	@Bean
 	public MemberService memberService() {
-		return new MemberService(memberRepository()); // 메서드 호출
+		return new MemberService(memberRepository); // memberRepository()는 메서드 호출
 	}
 
-	@Bean
-	public MemberRepository memberRepository() {
-		// return new MemoryMemberRepository();
-		// return new JdbcMemberRepository(dataSource);
-		// return new JdbcTemplateMemberRepository(dataSource);
-		return new JpaMemberRepository(em);
-	}
+	// @Bean
+	// public MemberRepository memberRepository() {
+	// 	// return new MemoryMemberRepository();
+	// 	// return new JdbcMemberRepository(dataSource);
+	// 	// return new JdbcTemplateMemberRepository(dataSource);
+	// 	return new JpaMemberRepository(em);
+	// }
 }
