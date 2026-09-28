@@ -9,18 +9,29 @@ import org.springframework.context.annotation.Configuration;
 
 import hello.hello_spring.repository.JdbcMemberRepository;
 import hello.hello_spring.repository.JdbcTemplateMemberRepository;
+import hello.hello_spring.repository.JpaMemberRepository;
 import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
 import hello.hello_spring.service.MemberService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Configuration
 public class SpringConfig {
 
-	@Autowired DataSource dataSource;
+	// @Autowired DataSource dataSource;
+	//
+	// @Autowired
+	// public SpringConfig(DataSource dataSource) {
+	// 	this.dataSource = dataSource;
+	// }
+
+	// @PersistenceContext // 스펙에서는 이렇게 받으라고 설명.
+	EntityManager em;
 
 	@Autowired
-	public SpringConfig(DataSource dataSource) {
-		this.dataSource = dataSource;
+	public SpringConfig(EntityManager em) {
+		this.em = em;
 	}
 
 	@Bean
@@ -32,6 +43,7 @@ public class SpringConfig {
 	public MemberRepository memberRepository() {
 		// return new MemoryMemberRepository();
 		// return new JdbcMemberRepository(dataSource);
-		return new JdbcTemplateMemberRepository(dataSource);
+		// return new JdbcTemplateMemberRepository(dataSource);
+		return new JpaMemberRepository(em);
 	}
 }
