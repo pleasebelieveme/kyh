@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import hello.hello_spring.aop.TimeTraceAop;
 import hello.hello_spring.repository.JdbcMemberRepository;
 import hello.hello_spring.repository.JdbcTemplateMemberRepository;
 import hello.hello_spring.repository.JpaMemberRepository;
@@ -48,6 +49,12 @@ public class SpringConfig {
 	@Bean
 	public MemberService memberService() {
 		return new MemberService(memberRepository); // memberRepository()는 메서드 호출
+	}
+
+	// aop를 사용하는지 알 수 있기에 SpringConfig에 적는 것을 선호(순환참조 문제 발생) 아니면 @Componant 사용
+	@Bean
+	public TimeTraceAop timeTraceAop() {
+		return new TimeTraceAop();
 	}
 
 	// @Bean
