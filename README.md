@@ -1,4 +1,4 @@
-# 🚀 KYH Backend Roadmap(인프런)
+# 🚀 KYH Backend Roadmap
 
 김영한님의 **Java / Spring / JPA / Database** 로드맵 학습 및 실습 코드 저장소입니다.
 
