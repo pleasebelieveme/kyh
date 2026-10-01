@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CoreApplication {
 
-	//주석
+	//주석 관리
 	public static void main(String[] args) {
 		SpringApplication.run(CoreApplication.class, args);
 	}
