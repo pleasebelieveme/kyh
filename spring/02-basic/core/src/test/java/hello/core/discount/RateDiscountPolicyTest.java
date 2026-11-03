@@ -1,5 +1,6 @@
 package hello.core.discount;
 
+import static org.assertj.core.api.AssertionsForClassTypes.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.assertj.core.api.Assertions;
@@ -26,4 +27,14 @@ class RateDiscountPolicyTest {
 		Assertions.assertThat(discount).isEqualTo(1000);
 	}
 
+	@Test
+	@DisplayName("VIP가 아니면 할인이 적용되지 않아야 한다.")
+	void vip_x() {
+		//given
+		Member memberBASIC = new Member(2L, "memberBASIC", Grade.BASIC);
+		//when
+		int discount = discountPolicy.discount(memberBASIC, 10000);
+		//then
+		assertThat(discount).isEqualTo(0);
+	}
 }
