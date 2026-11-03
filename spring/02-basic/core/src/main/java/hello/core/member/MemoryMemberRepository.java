@@ -3,7 +3,7 @@ package hello.core.member;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MemortMemberRepository implements MemberRepository {
+public class MemoryMemberRepository implements MemberRepository {
 
 	// 동시성 이슈 때문에 ConcurrentHashMap<>() 사용
 
