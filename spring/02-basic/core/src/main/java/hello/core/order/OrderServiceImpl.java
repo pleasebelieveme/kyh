@@ -1,16 +1,19 @@
 package hello.core.order;
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
-	private final MemberRepository memberRepository = new MemoryMemberRepository();
-	// final은 무조건 값이 할당되어야 하기에 final을 지운다.
-	private DiscountPolicy discountPolicy;
+	private final MemberRepository memberRepository;
+	// final은 무조건 값이 할당되어야 하기에 final을 지운다. -> 생성자주입으로 바꾸면 다시 final 적용
+	private final DiscountPolicy discountPolicy;
+
+	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+		this.memberRepository = memberRepository;
+		this.discountPolicy = discountPolicy;
+	}
 
 	@Override
 	public Order createOrder(Long memberId, String itemName, int itemPrice) {
