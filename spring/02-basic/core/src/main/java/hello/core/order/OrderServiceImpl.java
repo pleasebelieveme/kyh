@@ -10,6 +10,7 @@ public class OrderServiceImpl implements OrderService {
 	// final은 무조건 값이 할당되어야 하기에 final을 지운다. -> 생성자주입으로 바꾸면 다시 final 적용
 	private final DiscountPolicy discountPolicy;
 
+	// discountPolicy에 fix가 들어올지 rate가 들어올맂 impl은 모른다 -> 동적인 객체 인스턴스 의존 관계
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
