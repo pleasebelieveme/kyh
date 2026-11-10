@@ -25,6 +25,7 @@ public class AppConfig {
 	// call AppConfig.orderService
 	// call AppConfig.memberRepository
 	// -> 왜 memberRepository가 한번만 호출되지?
+	// @Configuration때문이다!
 
 	@Bean
 	public MemberService memberService() {
