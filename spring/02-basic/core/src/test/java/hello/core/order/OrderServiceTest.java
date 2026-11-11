@@ -34,4 +34,11 @@ public class OrderServiceTest {
 		// then
 		Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
 	}
+
+	// @Test
+	// void fieldInjectionTest() {
+	// 	OrderServiceImpl orderService = new OrderServiceImpl();
+	// 	orderService.createOrder(1L, "itemA", 10000);
+	// 	// 필드주입은 테스트할 방법이 없다. setRepository 필요
+	// }
 }
