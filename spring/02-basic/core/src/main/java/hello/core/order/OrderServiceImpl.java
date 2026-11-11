@@ -7,6 +7,8 @@ import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
+// BeanDefinitionStoreException
+// @Component("service")
 @Component
 public class OrderServiceImpl implements OrderService {
 
