@@ -1,9 +1,13 @@
 package hello.core.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
 	private final MemberRepository memberRepository;
@@ -11,6 +15,7 @@ public class OrderServiceImpl implements OrderService {
 	private final DiscountPolicy discountPolicy;
 
 	// discountPolicy에 fix가 들어올지 rate가 들어올맂 impl은 모른다 -> 동적인 객체 인스턴스 의존 관계
+	@Autowired
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
