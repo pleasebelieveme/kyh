@@ -1,8 +1,13 @@
 package hello.core.discount;
 
+import org.springframework.stereotype.Component;
+
 import hello.core.member.Grade;
 import hello.core.member.Member;
 
+// NoUniqueBeanDefinitionException.class
+// expected single matching bean but found 2: fixDiscountPolicy,rateDiscountPolicy
+// @Component
 public class FixDiscountPolicy implements DiscountPolicy {
 
 	private int discountFixAmount = 1000;
