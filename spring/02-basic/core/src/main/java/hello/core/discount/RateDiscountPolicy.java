@@ -10,8 +10,8 @@ import hello.core.member.Member;
 
 @Component
 // @Qualifier("mainDiscountPolicy") // 추가 구분자이다. 이름을 변경시켜주지는 않는다!
-// @Primary
-@MainDiscountPolicy
+@Primary
+// @MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy {
 
 	private int discountPercent = 10;
