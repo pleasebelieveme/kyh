@@ -8,7 +8,7 @@ import hello.core.member.Member;
 
 // NoUniqueBeanDefinitionException.class
 // expected single matching bean but found 2: fixDiscountPolicy,rateDiscountPolicy
-// @Component
+@Component
 // @Qualifier("mainDiscountPolicy") // 추가 구분자이다. 이름을 변경시켜주지는 않는다!
 public class FixDiscountPolicy implements DiscountPolicy {
 
