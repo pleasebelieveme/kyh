@@ -3,6 +3,7 @@ package hello.core.order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -16,7 +17,7 @@ public class OrderServiceImpl implements OrderService {
 
 	private final MemberRepository memberRepository;
 	// final은 무조건 값이 할당되어야 하기에 final을 지운다. -> 생성자주입으로 바꾸면 다시 final 적용
-	private final DiscountPolicy discountPolicy;
+	private final @MainDiscountPolicy DiscountPolicy discountPolicy;
 
 
 	// // @RequiredArgsConstructor가 아래의 코드를 생성해줌
